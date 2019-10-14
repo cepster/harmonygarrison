@@ -22,9 +22,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     this.userStore.stateChanged.subscribe((state: StoreState) => {
       if (state.currentUser !== null) {
-        console.log("STATE CHANGED");
-        console.log(state);
-        this.router.navigate(["home"]);
+        localStorage.setItem("user", JSON.stringify(state.currentUser));
       }
     });
   }
@@ -37,6 +35,7 @@ export class LoginComponent implements OnInit {
       })
       .subscribe(r => {
         this.userStore.login({ name: "Test", accessToken: r["access_token"] });
+        this.router.navigate(["home"]);
       });
   }
 }

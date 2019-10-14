@@ -39,6 +39,7 @@ export class TokenInterceptor implements HttpInterceptor {
       catchError(err => {
         if (err instanceof HttpErrorResponse) {
           if (err.status === 401) {
+            console.log("should be redirecting...");
             this.router.navigate(["login"]);
           }
           return of(null);

@@ -1,0 +1,17 @@
+<div *ngFor="let song of songs" style="display:flex">
+  <div style="height:50px;width:50px;">
+    <button (click)="deleteSong(song)"></button>
+  </div>
+  <div style="height:50px;width:300px;">{{ song.songTitle }}</div>
+</div>
+
+<input
+  [(ngModel)]="songToAdd"
+  [typeahead]="allSongs"
+  class="form-control"
+  (typeaheadOnSelect)="addSong($event)"
+/>
+
+<div style="margin-top:10px;">
+  <button (click)="saveSongs()" class="btn btn-primary">Save</button>
+</div>
