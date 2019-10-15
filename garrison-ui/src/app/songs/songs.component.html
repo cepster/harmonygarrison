@@ -1,8 +1,16 @@
-<div *ngFor="let song of songProfile.songs" style="display:flex">
-  <div style="height:50px;width:50px;">
-    <button class="btn" (click)="deleteSong(song)">X</button>
+<div *ngIf="songProfile">
+  <div *ngFor="let song of songProfile.songs" style="margin-bottom:5px;">
+    <div class="clearfix">
+      <button
+        type="button"
+        class="btn btn-secondary float-left"
+        (click)="deleteSong(song)"
+      >
+        X
+      </button>
+      <div class="float-left" style="margin-left:10px;">{{ song }}</div>
+    </div>
   </div>
-  <div style="height:50px;width:300px;">{{ song }}</div>
 </div>
 
 <input

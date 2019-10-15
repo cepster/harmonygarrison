@@ -1,5 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Component, OnInit } from "@angular/core";
+import * as toastr from "toastr";
 import { SongProfile } from "./songProfile.model";
 
 @Component({
@@ -46,7 +47,7 @@ export class SongsComponent implements OnInit {
     this.http
       .put("/songs/mySongs", this.songProfile)
       .subscribe((a: SongProfile) => {
-        console.log(a);
+        toastr.success("Songs have been saved!");
       });
   }
 }
