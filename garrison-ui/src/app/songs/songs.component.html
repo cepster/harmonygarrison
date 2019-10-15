@@ -1,8 +1,8 @@
-<div *ngFor="let song of songs" style="display:flex">
+<div *ngFor="let song of songProfile.songs" style="display:flex">
   <div style="height:50px;width:50px;">
-    <button (click)="deleteSong(song)"></button>
+    <button class="btn" (click)="deleteSong(song)">X</button>
   </div>
-  <div style="height:50px;width:300px;">{{ song.songTitle }}</div>
+  <div style="height:50px;width:300px;">{{ song }}</div>
 </div>
 
 <input
@@ -10,6 +10,7 @@
   [typeahead]="allSongs"
   class="form-control"
   (typeaheadOnSelect)="addSong($event)"
+  [typeaheadMinLength]="0"
 />
 
 <div style="margin-top:10px;">

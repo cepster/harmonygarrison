@@ -13,9 +13,10 @@ import { HomeComponent } from "./home/home.component";
 import { LoginComponent } from "./login/login.component";
 import { SongsComponent } from "./songs/songs.component";
 import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
+import { NewAccountComponent } from './new-account/new-account.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, HomeComponent, SongsComponent],
+  declarations: [AppComponent, LoginComponent, HomeComponent, SongsComponent, NewAccountComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

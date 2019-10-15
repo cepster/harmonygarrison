@@ -16,6 +16,11 @@ export class AppController {
     return this.authService.login(req.user);
   }
 
+  @Post("/auth/newAccount")
+  async newAccount(@Request() req) {
+    return this.authService.newAccount(req.body);
+  }
+
   @Get("/profile")
   @UseGuards(AuthGuard("jwt"))
   async getProfile(@Request() req) {

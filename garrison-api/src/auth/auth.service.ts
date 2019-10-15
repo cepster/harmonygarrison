@@ -19,6 +19,12 @@ export class AuthService {
     return null;
   }
 
+  async newAccount(body: any) {
+    const { username, password } = body;
+    const user: User = this.usersService.newUser(username, password);
+    return this.login(user);
+  }
+
   async login(user: any) {
     const payload = { username: user.username, sub: user.userId };
     return {

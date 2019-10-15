@@ -1,15 +1,14 @@
 import { HttpClient } from "@angular/common/http";
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
-import { StoreState } from "src/store/store-state";
 import { UserStoreService } from "src/store/user-service";
 
 @Component({
-  selector: "app-login",
-  templateUrl: "./login.component.html",
-  styleUrls: ["./login.component.scss"]
+  selector: "app-new-account",
+  templateUrl: "./new-account.component.html",
+  styleUrls: ["./new-account.component.scss"]
 })
-export class LoginComponent implements OnInit {
+export class NewAccountComponent implements OnInit {
   public username: string;
   public password: string;
 
@@ -19,17 +18,11 @@ export class LoginComponent implements OnInit {
     private readonly router: Router
   ) {}
 
-  ngOnInit() {
-    this.userStore.stateChanged.subscribe((state: StoreState) => {
-      if (state.currentUser !== null) {
-        localStorage.setItem("user", JSON.stringify(state.currentUser));
-      }
-    });
-  }
+  ngOnInit() {}
 
-  login() {
+  newAccount() {
     this.http
-      .post("/auth/login", {
+      .post("/auth/newAccount", {
         username: this.username,
         password: this.password
       })
@@ -37,9 +30,5 @@ export class LoginComponent implements OnInit {
         this.userStore.login({ name: "Test", accessToken: r["access_token"] });
         this.router.navigate(["home"]);
       });
-  }
-
-  newAccount() {
-    this.router.navigate(["new-account"]);
   }
 }
