@@ -27,7 +27,6 @@ export class SongsComponent implements OnInit {
   }
 
   addSong(event: any) {
-    console.log(event);
     this.songProfile.songs.push(event.item);
     this.songToAdd = "";
     this.filterAllSongs();

@@ -34,6 +34,7 @@ export class LoginComponent implements OnInit {
         password: this.password
       })
       .subscribe(r => {
+        console.log(r);
         this.userStore.login({ name: "Test", accessToken: r["access_token"] });
         this.router.navigate(["home"]);
       });
